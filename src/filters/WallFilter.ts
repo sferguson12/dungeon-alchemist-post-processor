@@ -1,5 +1,6 @@
 import { injectable } from 'tsyringe';
 import { Wall } from '../types';
+import { DoorValue, MovementValue, SenseValue, SoundValue } from '../enums';
 
 @injectable()
 export class WallFilter {
@@ -12,7 +13,10 @@ export class WallFilter {
    */
   public isNotWall(wall: Wall): boolean {
     return (
-      wall.move === 1 && wall.sense === 0 && wall.sound === 1 && wall.door === 0
+      wall.move === MovementValue.Normal &&
+      wall.sense === SenseValue.None &&
+      wall.sound === SoundValue.Normal &&
+      wall.door === DoorValue.None
     );
   }
 }
