@@ -1,6 +1,6 @@
 # Dungeon Alchemist Post Processor
 
-This is a NodeJS project for processing outputs from Dungeon Alchemist.
+This is a NodeJS project for processing outputs from [Dungeon Alchemist](https://store.steampowered.com/app/1588530/Dungeon_Alchemist/).
 
 ## Getting Started
 
