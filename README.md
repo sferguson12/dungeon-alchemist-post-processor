@@ -37,13 +37,35 @@ To run the transformation, use the following command:
 npm start process {Foundry JSON file exported from Dungeon Alchemist}
 ```
 
+The output will look something like the following:
+
+```
+File content successfully read into memory
+Grid size: 72
+Processing JSON data on Windows
+Updating detected window at coordinates: 1872,860,1728,860
+...
+23 windows processed
+Processing JSON data on Fences
+Updating detected fence at coordinates: 1728,3458,141,3458
+...
+12 fences processed
+Processing JSON data on Gates
+12 fences found
+Updating detected gate at coordinates: 1728,2953,1728,2881
+...
+3 gates processed
+Modified JSON data written to C:\Users\sferg\Desktop\dungeon-alchemist-post-processor\output.json
+```
+
 ### Results
 
 #### Windows
 
 Windows are set with Light and Sight Restriction set to Proximity with a default
 distance of 10 feet, and Proximity Threshold Attenuation is enabled. Windows are detected
-as being exactly 1 or 2 grid squares, having no sense restrictions.
+as being exactly 1 or 2 grid squares, having no sense restrictions. To change the sight
+distance to something other than 10 feet, edit WindowTransformer.
 
 #### Fences
 
