@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import chalk from 'chalk';
 import { WindowProcessor } from './processors/WindowProcessor';
-import { FenceProcessor } from './processors/FencesProcessor';
+import { FenceProcessor } from './processors/FenceProcessor';
 import { MapGrid } from './types';
 import { GateProcessor } from './processors/GateProcessor';
 
