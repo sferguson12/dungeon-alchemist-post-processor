@@ -2,15 +2,17 @@ import { inject, injectable } from 'tsyringe';
 import fs from 'fs/promises';
 import path from 'path';
 import chalk from 'chalk';
-import { Windows } from './Windows';
-import { Fences } from './Fences';
+import { WindowProcessor } from './processors/WindowProcessor';
+import { FenceProcessor } from './processors/FencesProcessor';
 import { MapGrid } from './types';
+import { GateProcessor } from './processors/GateProcessor';
 
 @injectable()
-export class Processor {
+export class MapGridProcessor {
   constructor(
-    @inject(Windows) private windows: Windows,
-    @inject(Fences) private fences: Fences
+    @inject(FenceProcessor) private fenceProcessor: FenceProcessor,
+    @inject(GateProcessor) private gateProcessor: GateProcessor,
+    @inject(WindowProcessor) private windowProcessor: WindowProcessor
   ) {}
 
   public async process(file: string) {
@@ -26,8 +28,9 @@ export class Processor {
       const gridSize = jsonData.grid;
       console.log(chalk.blue(`Grid size: ${gridSize}`));
 
-      this.windows.processObjects(jsonData, gridSize);
-      this.fences.processObjects(jsonData, gridSize);
+      this.windowProcessor.processObjects(jsonData, gridSize);
+      this.fenceProcessor.processObjects(jsonData, gridSize);
+      this.gateProcessor.processObjects(jsonData, gridSize);
 
       const outputFilePath = path.resolve('output.json');
       await fs.writeFile(outputFilePath, JSON.stringify(jsonData, null, 2));

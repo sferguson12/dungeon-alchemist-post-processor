@@ -1,12 +1,12 @@
 import { injectable, inject } from 'tsyringe';
 import { Command } from 'commander';
-import { Processor } from './Processor';
+import { MapGridProcessor } from './MapGridProcessor';
 
 @injectable()
 export class Program {
   private program: Command;
 
-  constructor(@inject(Processor) private processor: Processor) {
+  constructor(@inject(MapGridProcessor) private mapGridProcessor: MapGridProcessor) {
     this.program = new Command();
     this.setupCommands();
   }
@@ -21,7 +21,7 @@ export class Program {
       .command('process <file>')
       .description('Post process the Dungeon Alchemy export')
       .action(async (file: string) => {
-        await this.processor.process(file);
+        await this.mapGridProcessor.process(file);
       });
   }
 
