@@ -12,7 +12,7 @@ N/A
 
 ## Documentation
 
-- [ ] Capture animations of the before/after configuration changes
+N/A
 
 ## Testing
 

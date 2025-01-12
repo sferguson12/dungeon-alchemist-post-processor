@@ -1,6 +1,6 @@
 # Dungeon Alchemist Post Processor
 
-This is a NodeJS project for processing outputs from [Dungeon Alchemist](https://store.steampowered.com/app/1588530/Dungeon_Alchemist/).
+This is a NodeJS project for processing outputs from [Dungeon Alchemist](https://store.steampowered.com/app/1588530/Dungeon_Alchemist/). See the [Foundry article on Walls](https://foundryvtt.com/article/walls/) for more information about Wall configuration.
 
 ## Getting Started
 
@@ -63,6 +63,8 @@ Modified JSON data written to C:\Users\sferg\Desktop\dungeon-alchemist-post-proc
 The default background color on the map is set to black. To change this, edit the `DEFAULT_BACKGROUND_COLOR`
 in `MapGridProcessor`.
 
+**Note:** The following animations were captured with Token Vision enabled for the scene.
+
 #### Windows
 
 Windows are set with Light and Sight Restriction set to Proximity with a default
@@ -70,11 +72,41 @@ distance of 10 feet, and Proximity Threshold Attenuation is enabled. Windows are
 as being exactly 1 or 2 grid squares, having no sense restrictions. To change the sight
 distance to something other than 10 feet, edit WindowTransformer.
 
+This will limit token vision through windows on either side until the token is within
+the proximity distance.
+
+---
+
+_Windows - Before: Token can see an unlimited distance through any number of windows_
+
+![Windows - Before](./docs/windows-before.gif)
+
+_Windows - After: Token can only see through a window as they approach the proximity threshold_
+
+![Windows - After](./docs/windows-after.gif)
+
+---
+
 #### Fences
 
 Fences are set with Light and Sight Restriction set to Limited instead of None.
 Fences are detected as being greater than 2 grid squares, having no sense restrictions. A
 fence that is exactly 1 or 2 grid squares will erroneously be detected as a window.
+
+This will permit token vision through the fence, but obscure vision through multiple
+fences.
+
+---
+
+_Fences - Before: Token can see through any number of consecutive fences_
+
+![Fences - Before](./docs/fences-before.gif)
+
+_Fences - After: Token can only see through the closest fence_
+
+![Fences - After](./docs/fences-after.gif)
+
+---
 
 #### Gates
 
@@ -87,6 +119,21 @@ that the results can be imprecise due to the limitations of the source data. Ass
 made that windows and doors cannot be more than two grid unit wide. However, the cleanup
 should be considerably less effort than updating everything by hand every time the Dungeon
 Alchemist JSON is imported.
+
+This will permit vision through the gate, much as with a fence. The default is that a gate
+is treated as opaque to the tokens, as is a standard door.
+
+---
+
+_Gates - Before: Token cannot see through the gate_
+
+![Gates - Before](./docs/gates-before.gif)
+
+_Gates - After: Token can see through the nearest gate_
+
+![Gates - After](./docs/gates-after.gif)
+
+---
 
 ### Contributing
 
