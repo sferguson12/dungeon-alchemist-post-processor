@@ -14,6 +14,7 @@ export interface MapGrid {
   darkness: number;
   img?: string | null;
   foreground?: string | null;
+  backgroundColor?: string | null;
   lights: Light[];
   walls: Wall[];
 }

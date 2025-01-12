@@ -7,6 +7,8 @@ import { FenceProcessor } from './processors/FenceProcessor';
 import { MapGrid } from './types';
 import { GateProcessor } from './processors/GateProcessor';
 
+const DEFAULT_BACKGROUND_COLOR = '#000000';
+
 @injectable()
 export class MapGridProcessor {
   constructor(
@@ -31,6 +33,8 @@ export class MapGridProcessor {
       this.windowProcessor.processObjects(jsonData, gridSize);
       this.fenceProcessor.processObjects(jsonData, gridSize);
       this.gateProcessor.processObjects(jsonData, gridSize);
+
+      jsonData.backgroundColor = DEFAULT_BACKGROUND_COLOR;
 
       const outputFilePath = path.resolve('output.json');
       await fs.writeFile(outputFilePath, JSON.stringify(jsonData, null, 2));

@@ -4,6 +4,7 @@
 
 - [ ] Add support for output file location
 - [ ] Make sight distance for windows configurable
+- [ ] Make background color configurable
 
 ## Bugs to Fix
 

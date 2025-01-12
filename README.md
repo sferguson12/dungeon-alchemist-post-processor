@@ -60,6 +60,9 @@ Modified JSON data written to C:\Users\sferg\Desktop\dungeon-alchemist-post-proc
 
 ### Results
 
+The default background color on the map is set to black. To change this, edit the `DEFAULT_BACKGROUND_COLOR`
+in `MapGridProcessor`.
+
 #### Windows
 
 Windows are set with Light and Sight Restriction set to Proximity with a default
