@@ -44,3 +44,8 @@ export interface Wall {
   light?: number | null;
   threshold?: WallThreshold | null;
 }
+
+export interface Point {
+  x: number;
+  y: number;
+}

@@ -2,19 +2,19 @@ import { injectable } from "tsyringe";
 import { Wall } from "../types";
 
 @injectable()
-export class WallFilter {
+export class DoorFilter {
 
   /**
-   * A non-wall is defined as an object that blocks movement and sound, but
-   * does not block light and is not a door.
+   * A door is defined as an object that blocks movement, sound, and light,
+   * and has the door flag set.
    * 
    * @param wall object to test
    * @returns true if the object is a door, false otherwise
    */
-  public isNotWall(wall: Wall): boolean {
+  public isDoor(wall: Wall): boolean {
     return wall.move === 1 && 
-      wall.sense === 0 && 
+      wall.sense === 1 && 
       wall.sound === 1 && 
-      wall.door === 0
-  }
+      wall.door === 1
+  }  
 }

@@ -4,9 +4,9 @@ import chalk from "chalk";
 import { SenseValue } from "../enums";
 
 @injectable()
-export class FenceTransformer {
+export class GateTransformer {
   public transformObject(wall: Wall) {
-    console.log(chalk.cyan(`Updating detected fence at coordinates: ${wall.c}`));
+    console.log(chalk.cyan(`Updating detected gate at coordinates: ${wall.c}`));
     wall.sense = SenseValue.Limited;
   }
 }
