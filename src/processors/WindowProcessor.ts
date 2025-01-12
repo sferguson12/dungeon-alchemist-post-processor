@@ -17,7 +17,7 @@ export class WindowProcessor {
     console.log(chalk.yellow('Processing JSON data on Windows'));
 
     const walls = jsonData.walls as Wall[];
-    const windows = walls.filter(wall => this.wallFilter.isWall(wall))
+    const windows = walls.filter(wall => this.wallFilter.isNotWall(wall))
       .filter(wall => this.windowFilter.isWindow(wall, gridSize))
       .map(wall => this.windowTransfromer.transformObject(wall));
 

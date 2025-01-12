@@ -24,13 +24,18 @@ export class GateProcessor {
     console.log(chalk.yellow('Processing JSON data on Gates'));
 
     const walls = jsonData.walls as Wall[];
-    const gates = walls.filter(wall => this.wallFilter.isWall(wall))
-      .filter(wall => this.gateFilter.isGate(wall, gridSize))
-      .map(wall => {
-        console.log(chalk.cyan(`Updating detected gate at coordinates: ${wall.c}`));
-        wall.sense = SENSE_VALUE;
-      });
+    const fences = walls.filter(wall => this.wallFilter.isNotWall(wall))
+      .filter(wall => this.fenceFilter.isFence(wall, gridSize));
 
-    console.log(chalk.green(`${gates.length} gates processed`));
+    console.log(chalk.green(`${fences.length} fences processed`));
+
+    // const gates = walls.filter(wall => this.wallFilter.isWall(wall))
+    //   .filter(wall => this.gateFilter.isGate(wall, gridSize))
+    //   .map(wall => {
+    //     console.log(chalk.cyan(`Updating detected gate at coordinates: ${wall.c}`));
+    //     wall.sense = SENSE_VALUE;
+    //   });
+
+    // console.log(chalk.green(`${gates.length} gates processed`));
   }
 }

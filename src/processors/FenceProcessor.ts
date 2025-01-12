@@ -17,7 +17,7 @@ export class FenceProcessor {
     console.log(chalk.yellow('Processing JSON data on Fences'));
 
     const walls = jsonData.walls as Wall[];
-    const fences = walls.filter(wall => this.wallFilter.isWall(wall))
+    const fences = walls.filter(wall => this.wallFilter.isNotWall(wall))
       .filter(wall => this.fenceFilter.isFence(wall, gridSize))
       .map(wall => this.fenceTransformer.transformObject(wall));
 
