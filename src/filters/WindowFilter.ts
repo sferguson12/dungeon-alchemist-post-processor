@@ -1,16 +1,15 @@
-import { injectable } from "tsyringe";
-import { Wall } from "../types";
+import { injectable } from 'tsyringe';
+import { Wall } from '../types';
 
 // Windows are either one or two tiles in size
 const MAX_WINDOW_SIZE = 2;
 
 @injectable()
 export class WindowFilter {
-
   /**
    * A window is defined as a non-wall object that is no more than two
    * tiles in size.
-   * 
+   *
    * @param wall object to test
    * @param gridSize grid size in pixels
    * @returns true if the object is a window, false otherwise

@@ -1,7 +1,7 @@
-import { injectable } from "tsyringe";
-import { Wall } from "../types";
-import chalk from "chalk";
-import { SenseValue } from "../enums";
+import { injectable } from 'tsyringe';
+import { Wall } from '../types';
+import chalk from 'chalk';
+import { SenseValue } from '../enums';
 
 @injectable()
 export class GateTransformer {

@@ -12,7 +12,7 @@ export class MapGridProcessor {
   constructor(
     @inject(FenceProcessor) private fenceProcessor: FenceProcessor,
     @inject(GateProcessor) private gateProcessor: GateProcessor,
-    @inject(WindowProcessor) private windowProcessor: WindowProcessor
+    @inject(WindowProcessor) private windowProcessor: WindowProcessor,
   ) {}
 
   public async process(file: string) {
@@ -34,7 +34,9 @@ export class MapGridProcessor {
 
       const outputFilePath = path.resolve('output.json');
       await fs.writeFile(outputFilePath, JSON.stringify(jsonData, null, 2));
-      console.log(chalk.green(`Modified JSON data written to ${outputFilePath}`));
+      console.log(
+        chalk.green(`Modified JSON data written to ${outputFilePath}`),
+      );
     } catch (err: any) {
       if (err.code === 'ENOENT') {
         console.error(chalk.red(`File not found: ${filePath}`));
