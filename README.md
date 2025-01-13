@@ -22,14 +22,14 @@ the proximity distance.
   <div style="font-weight: bold;">Window - Before: Token can see an unlimited distance through any number of windows</div>
   <br>
   <img src="./docs/window-before.gif" alt="Window Animation - Before" width="50%">
-  <img src="./docs/fence-config-before.jpg" alt="Window Configuration - Before" width="30%">
+  <img src="./docs/window-config-before.jpg" alt="Window Configuration - Before" width="30%">
 </div>
 <hr>
 <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
   <div style="font-weight: bold;">Window - After: Token can only see through a window as they approach the proximity threshold</div>
   <br>
   <img style="align-self: flex-start" src="./docs/window-after.gif" alt="Window Animation - After" width="50%">
-  <img style="align-self: flex-start" src="./docs/fence-config-after.jpg" alt="Window Configuration - After" width="30%">
+  <img style="align-self: flex-start" src="./docs/window-config-after.jpg" alt="Window Configuration - After" width="30%">
 </div>
 
 ---
