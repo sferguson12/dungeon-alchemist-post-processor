@@ -3,12 +3,14 @@ import { inject, injectable } from 'tsyringe';
 import { MapGrid, Point, Wall } from '../types';
 import { GateFilter } from '../filters/GateFilter';
 import { GateTransformer } from '../transformers/GateTransformer';
+import { PointTransformer } from '../transformers/PointTransformer';
 
 @injectable()
 export class GateProcessor {
   constructor(
     @inject(GateFilter) private gateFilter: GateFilter,
     @inject(GateTransformer) private gateTransformer: GateTransformer,
+    @inject(PointTransformer) private pointTransformer: PointTransformer,
   ) {}
 
   public processObjects(
@@ -21,12 +23,7 @@ export class GateProcessor {
     const walls = jsonData.walls as Wall[];
 
     // Build a list of fence coordinate pairs for use by the gate filter
-    const fencePoints: Point[] = fences.flatMap((fence) => {
-      return [
-        { x: fence.c[0], y: fence.c[1] },
-        { x: fence.c[2], y: fence.c[3] },
-      ];
-    });
+    const fencePoints: Point[] = this.pointTransformer.toAllPoints(fences);
 
     const gates = walls
       .filter((wall) => this.gateFilter.isGate(wall, gridSize, fencePoints))
