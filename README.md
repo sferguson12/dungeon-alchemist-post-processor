@@ -6,7 +6,7 @@ This is a NodeJS project for processing Foundry exports from [Dungeon Alchemist]
 
 ### Results
 
-**Note:** The following animations were captured with Token Vision enabled for the scene.
+**Note:** The following animations were captured with [Token Vision enabled for the scene (see Lighting Settings)](https://foundryvtt.com/article/scenes/).
 
 #### Windows
 
