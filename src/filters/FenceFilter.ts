@@ -17,6 +17,8 @@ export class FenceFilter {
   public isFence(wall: Wall, gridSize: number): boolean {
     const [x1, y1, x2, y2] = wall.c;
     const size = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-    return size > MIN_FENCE_TILES * gridSize;
+
+    // We need to give it a pixel on either side since sometimes the math bumps them up a pixel
+    return size > MIN_FENCE_TILES * gridSize + 2;
   }
 }

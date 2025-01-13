@@ -5,17 +5,17 @@ import { DoorValue, MovementValue, SenseValue, SoundValue } from '../enums';
 @injectable()
 export class WallFilter {
   /**
-   * A non-wall is defined as an object that blocks movement and sound, but
-   * does not block light and is not a door.
+   * A wall is defined as an object that blocks movement, sense, and sound,
+   * but is not a door.
    *
    * @param wall object to test
-   * @returns true if the object is a door, false otherwise
+   * @returns true if the object is a wall, false otherwise
    */
-  public isNotWall(wall: Wall): boolean {
+  public isWall(wall: Wall): boolean {
     return (
       wall.move === MovementValue.Normal &&
-      wall.sense === SenseValue.None &&
       wall.sound === SoundValue.Normal &&
+      wall.sense === SenseValue.Normal &&
       wall.door === DoorValue.None
     );
   }

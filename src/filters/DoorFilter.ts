@@ -12,11 +12,6 @@ export class DoorFilter {
    * @returns true if the object is a door, false otherwise
    */
   public isDoor(wall: Wall): boolean {
-    return (
-      wall.move === MovementValue.Normal &&
-      wall.sense === SenseValue.Normal &&
-      wall.sound === SoundValue.Normal &&
-      wall.door === DoorValue.Door
-    );
+    return wall.door === DoorValue.Door;
   }
 }
