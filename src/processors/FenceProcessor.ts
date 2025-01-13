@@ -13,7 +13,7 @@ export class FenceProcessor {
     @inject(WallFilter) private wallFilter: WallFilter,
   ) {}
 
-  public processObjects(jsonData: MapGrid, gridSize: number) {
+  public processObjects(jsonData: MapGrid, gridSize: number): Wall[] {
     console.log(chalk.yellow('Processing JSON data on Fences'));
 
     const walls = jsonData.walls as Wall[];
@@ -23,5 +23,7 @@ export class FenceProcessor {
       .map((wall) => this.fenceTransformer.transformObject(wall));
 
     console.log(chalk.green(`${fences.length} fences processed`));
+
+    return fences;
   }
 }

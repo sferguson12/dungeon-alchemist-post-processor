@@ -13,7 +13,7 @@ export class WindowProcessor {
     @inject(WindowTransfromer) private windowTransfromer: WindowTransfromer,
   ) {}
 
-  public async processObjects(jsonData: MapGrid, gridSize: number) {
+  public processObjects(jsonData: MapGrid, gridSize: number): Wall[] {
     console.log(chalk.yellow('Processing JSON data on Windows'));
 
     const walls = jsonData.walls as Wall[];
@@ -23,5 +23,7 @@ export class WindowProcessor {
       .map((wall) => this.windowTransfromer.transformObject(wall));
 
     console.log(chalk.green(`${windows.length} windows processed`));
+
+    return windows;
   }
 }

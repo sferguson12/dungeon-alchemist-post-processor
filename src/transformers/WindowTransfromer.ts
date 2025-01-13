@@ -14,7 +14,7 @@ const WINDOW_THRESHOLD: WallThreshold = {
 
 @injectable()
 export class WindowTransfromer {
-  public transformObject(wall: Wall) {
+  public transformObject(wall: Wall): Wall {
     console.log(
       chalk.cyan(`Updating detected window at coordinates: ${wall.c}`),
     );
@@ -22,5 +22,6 @@ export class WindowTransfromer {
     wall.light = SenseValue.Proximity;
     wall.sight = SenseValue.Proximity;
     wall.threshold = WINDOW_THRESHOLD;
+    return wall;
   }
 }

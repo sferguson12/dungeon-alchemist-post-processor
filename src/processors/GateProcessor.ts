@@ -14,7 +14,7 @@ export class GateProcessor {
     @inject(GateTransformer) private gateTransformer: GateTransformer,
   ) {}
 
-  public processObjects(jsonData: MapGrid, gridSize: number) {
+  public processObjects(jsonData: MapGrid, gridSize: number): Wall[] {
     console.log(chalk.yellow('Processing JSON data on Gates'));
 
     const walls = jsonData.walls as Wall[];
@@ -37,5 +37,7 @@ export class GateProcessor {
       .map((wall) => this.gateTransformer.transformObject(wall));
 
     console.log(chalk.green(`${gates.length} gates processed`));
+
+    return gates;
   }
 }
