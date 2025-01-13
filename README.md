@@ -20,13 +20,17 @@ the proximity distance.
 
 ---
 
-_Windows - Before: Token can see an unlimited distance through any number of windows_
+<div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
+  <span style="font-weight: bold;">Window - Before: Token can see an unlimited distance through any number of windows</span>
+  <img src="./docs/window-before.gif" alt="Window Animation - Before" width="50%">
+  <img src="./docs/fence-config-before.jpg" alt="Window Configuration - Before" width="30%">
+</div>
 
-![Windows - Before](./docs/windows-before.gif)
-
-_Windows - After: Token can only see through a window as they approach the proximity threshold_
-
-![Windows - After](./docs/windows-after.gif)
+<div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
+  <span style="font-weight: bold;">Window - After: Token can only see through a window as they approach the proximity threshold</span>
+  <img src="./docs/window-after.gif" alt="Window Animation - After" width="50%">
+  <img src="./docs/fence-config-after.jpg" alt="Window Configuration - After" width="30%">
+</div>
 
 ---
 
@@ -41,13 +45,17 @@ fences.
 
 ---
 
-_Fences - Before: Token can see through any number of consecutive fences_
+<div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
+  <span style="font-weight: bold;">Fence - Before: Token can see through any number of consecutive fences</span>
+  <img src="./docs/fence-before.gif" alt="Fence Animation - Before" width="50%">
+  <img src="./docs/fence-config-before.jpg" alt="Fence Configuration - Before" width="30%">
+</div>
 
-![Fences - Before](./docs/fences-before.gif)
-
-_Fences - After: Token can only see through the closest fence_
-
-![Fences - After](./docs/fences-after.gif)
+<div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
+  <span style="font-weight: bold;">Fence - After: Token can only see through the closest fence</span>
+  <img src="./docs/fence-after.gif" alt="Fence Animation - After" width="50%">
+  <img src="./docs/fence-config-after.jpg" alt="Fence Configuration - After" width="30%">
+</div>
 
 ---
 
@@ -62,13 +70,17 @@ DA export is that a gate is treated as opaque to the tokens, as with a standard 
 
 ---
 
-_Gates - Before: Token cannot see through the gate_
+<div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
+  <span style="font-weight: bold;">Gate - Before: Token cannot see through the gate</span>
+  <img src="./docs/gate-before.gif" alt="Gate Animation - Before" width="50%">
+  <img src="./docs/gate-config-before.jpg" alt="Gate Configuration - Before" width="30%">
+</div>
 
-![Gates - Before](./docs/gates-before.gif)
-
-_Gates - After: Token can see through the nearest gate_
-
-![Gates - After](./docs/gates-after.gif)
+<div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
+  <span style="font-weight: bold;">Gate - After: Token can see through the nearest gate</span>
+  <img src="./docs/gate-after.gif" alt="Gate Animation - After" width="50%">
+  <img src="./docs/gate-config-after.jpg" alt="Gate Configuration - After" width="30%">
+</div>
 
 ---
 
