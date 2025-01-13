@@ -1,6 +1,6 @@
 # Dungeon Alchemist Post Processor
 
-This is a NodeJS project for processing outputs from [Dungeon Alchemist](https://store.steampowered.com/app/1588530/Dungeon_Alchemist/). See the [Foundry article on Walls](https://foundryvtt.com/article/walls/) for more information about Wall configuration.
+This is a NodeJS project for processing Foundry exports from [Dungeon Alchemist](https://store.steampowered.com/app/1588530/Dungeon_Alchemist/). See the [Foundry article on Walls](https://foundryvtt.com/article/walls/) for more information about Wall configuration.
 
 ## What does it do?
 
@@ -103,7 +103,7 @@ npm install
 
 The specifics for how objects are detected are documented in the various Filter classes. Note
 that the results can be imprecise due to the limitations of the source data. Assumptions are
-made that windows and doors cannot be more than two grid unit wide. However, the cleanup
+made that windows and doors cannot be more than two grid units wide. However, the cleanup
 should be considerably less effort than updating everything by hand every time the Dungeon
 Alchemist JSON is imported.
 
