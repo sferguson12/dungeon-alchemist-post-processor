@@ -1,5 +1,6 @@
 import { injectable } from 'tsyringe';
 import { Point, Wall } from '../types';
+import { DoorValue } from '../enums';
 
 const MAX_GATE_TILES = 2;
 
@@ -19,6 +20,10 @@ export class GateFilter {
   public isGate(wall: Wall, gridSize: number, fencePoints: Point[]): boolean {
     const [x1, y1, x2, y2] = wall.c;
     const size = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+
+    if (wall.door !== DoorValue.Door) {
+      return false;
+    }
 
     // We need to give it a pixel on either side since sometimes the math bumps them up a pixel
     const isSizeCandidate =

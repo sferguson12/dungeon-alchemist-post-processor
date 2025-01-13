@@ -32,7 +32,6 @@ export class GateProcessor {
     });
 
     const gates = walls
-      .filter((wall) => this.doorFilter.isDoor(wall))
       .filter((wall) => this.gateFilter.isGate(wall, gridSize, fencePoints))
       .map((wall) => this.gateTransformer.transformObject(wall));
 
