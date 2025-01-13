@@ -21,7 +21,7 @@ export class GateFilter {
     const size = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 
     // We need to give it a pixel on either side since sometimes the math bumps them up a pixel
-    const isGateSize =
+    const isSizeCandidate =
       size <= MAX_GATE_TILES + 2 * gridSize && size % gridSize < 2;
 
     const points: Point[] = [
@@ -32,7 +32,7 @@ export class GateFilter {
       this.isPointInFence(point, fencePoints),
     );
 
-    return isGateSize && sharesFenceCoordinate;
+    return isSizeCandidate && sharesFenceCoordinate;
   }
 
   private isPointInFence(point: Point, fencePoints: Point[]): boolean {
