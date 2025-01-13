@@ -2,72 +2,9 @@
 
 This is a NodeJS project for processing outputs from [Dungeon Alchemist](https://store.steampowered.com/app/1588530/Dungeon_Alchemist/). See the [Foundry article on Walls](https://foundryvtt.com/article/walls/) for more information about Wall configuration.
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v22 or later)
-- npm (v10 or later)
-
-### Installation
-
-1. Clone the repository:
-
-```sh
-git clone https://github.com/yourusername/dungeon-alchemist-post-processor.git
-```
-
-2. Navigate to the project directory:
-
-```sh
-cd dungeon-alchemist-post-processor
-```
-
-3. Install the dependencies:
-
-```sh
-npm install
-```
-
-### Usage
-
-To run the transformation, use the following command:
-
-```sh
-npm start process {Foundry JSON file exported from Dungeon Alchemist}
-```
-
-The output will look something like the following:
-
-```
-File content successfully read into memory
-Grid size: 72
-Processing JSON data on Windows
-Updating detected window at coordinates: 1872,860,1728,860
-...
-23 windows processed
-Processing JSON data on Fences
-Updating detected fence at coordinates: 1728,3458,141,3458
-...
-12 fences processed
-Processing JSON data on Gates
-12 fences found
-Updating detected gate at coordinates: 1728,2953,1728,2881
-...
-3 gates processed
-Modified JSON data written to C:\Users\sferg\Desktop\dungeon-alchemist-post-processor\output.json
-```
+## What does it do?
 
 ### Results
-
-The default background color on the map is set to black. To change this, edit the `DEFAULT_BACKGROUND_COLOR`
-in `MapGridProcessor`.
-
-The specifics for how objects are detected are documented in the various Filter classes. Note
-that the results can be imprecise due to the limitations of the source data. Assumptions are
-made that windows and doors cannot be more than two grid unit wide. However, the cleanup
-should be considerably less effort than updating everything by hand every time the Dungeon
-Alchemist JSON is imported.
 
 **Note:** The following animations were captured with Token Vision enabled for the scene.
 
@@ -134,6 +71,70 @@ _Gates - After: Token can see through the nearest gate_
 ![Gates - After](./docs/gates-after.gif)
 
 ---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v22 or later)
+- npm (v10 or later)
+
+### Installation
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/yourusername/dungeon-alchemist-post-processor.git
+```
+
+2. Navigate to the project directory:
+
+```sh
+cd dungeon-alchemist-post-processor
+```
+
+3. Install the dependencies:
+
+```sh
+npm install
+```
+
+### Implementation
+
+The specifics for how objects are detected are documented in the various Filter classes. Note
+that the results can be imprecise due to the limitations of the source data. Assumptions are
+made that windows and doors cannot be more than two grid unit wide. However, the cleanup
+should be considerably less effort than updating everything by hand every time the Dungeon
+Alchemist JSON is imported.
+
+### Usage
+
+To run the transformation, use the following command:
+
+```sh
+npm start process {Foundry JSON file exported from Dungeon Alchemist}
+```
+
+The output will look something like the following:
+
+```
+File content successfully read into memory
+Grid size: 72
+Processing JSON data on Windows
+Updating detected window at coordinates: 1872,860,1728,860
+...
+23 windows processed
+Processing JSON data on Fences
+Updating detected fence at coordinates: 1728,3458,141,3458
+...
+12 fences processed
+Processing JSON data on Gates
+12 fences found
+Updating detected gate at coordinates: 1728,2953,1728,2881
+...
+3 gates processed
+Modified JSON data written to C:\Users\sferg\Desktop\dungeon-alchemist-post-processor\output.json
+```
 
 ### Contributing
 
