@@ -5,6 +5,7 @@
 - [ ] Add support for output file location
 - [ ] Make sight distance for windows configurable
 - [ ] Make background color configurable
+- [ ] Test results if we check whether a gate is attached to another gate
 
 ## Bugs to Fix
 
