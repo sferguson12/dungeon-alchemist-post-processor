@@ -1,7 +1,7 @@
 import { injectable } from 'tsyringe';
 import { Wall, WallThreshold } from '../types';
 import chalk from 'chalk';
-import { SenseValue } from '../enums';
+import { DoorValue, MovementValue, SenseValue } from '../enums';
 
 // Setttings to update for windows
 const SIGHT_DISTANCE = 10;
@@ -18,10 +18,16 @@ export class WindowTransfromer {
     console.log(
       chalk.cyan(`Updating detected window at coordinates: ${wall.c}`),
     );
+
+    wall.move = MovementValue.Normal;
     wall.sense = SenseValue.Proximity;
+    wall.sound = SenseValue.Normal;
+    wall.door = DoorValue.None;
+
     wall.light = SenseValue.Proximity;
     wall.sight = SenseValue.Proximity;
     wall.threshold = WINDOW_THRESHOLD;
+
     return wall;
   }
 }

@@ -1,13 +1,18 @@
 import { injectable } from 'tsyringe';
 import { Wall } from '../types';
 import chalk from 'chalk';
-import { SenseValue } from '../enums';
+import { DoorValue, MovementValue, SenseValue, SoundValue } from '../enums';
 
 @injectable()
 export class GateTransformer {
   public transformObject(wall: Wall): Wall {
     console.log(chalk.cyan(`Updating detected gate at coordinates: ${wall.c}`));
+
+    wall.move = MovementValue.Normal;
     wall.sense = SenseValue.Limited;
+    wall.sound = SoundValue.None;
+    wall.door = DoorValue.Door;
+
     return wall;
   }
 }
