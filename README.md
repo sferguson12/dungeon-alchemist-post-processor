@@ -4,11 +4,9 @@ This is a NodeJS project for processing Foundry exports from [Dungeon Alchemist]
 
 ## What does it do?
 
-### Results
-
 **Note:** The following animations were captured with [Token Vision enabled for the scene (see Lighting Settings)](https://foundryvtt.com/article/scenes/).
 
-#### Windows
+### Windows
 
 Windows are set with Light and Sight Restriction set to Proximity with a default
 distance of 10 feet, and Proximity Threshold Attenuation is enabled. Windows are detected
@@ -21,20 +19,22 @@ the proximity distance.
 ---
 
 <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
-  <span style="font-weight: bold;">Window - Before: Token can see an unlimited distance through any number of windows</span>
+  <div style="font-weight: bold;">Window - Before: Token can see an unlimited distance through any number of windows</div>
+  <br>
   <img src="./docs/window-before.gif" alt="Window Animation - Before" width="50%">
   <img src="./docs/fence-config-before.jpg" alt="Window Configuration - Before" width="30%">
 </div>
-
+<hr>
 <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
-  <span style="font-weight: bold;">Window - After: Token can only see through a window as they approach the proximity threshold</span>
-  <img src="./docs/window-after.gif" alt="Window Animation - After" width="50%">
-  <img src="./docs/fence-config-after.jpg" alt="Window Configuration - After" width="30%">
+  <div style="font-weight: bold;">Window - After: Token can only see through a window as they approach the proximity threshold</div>
+  <br>
+  <img style="align-self: flex-start" src="./docs/window-after.gif" alt="Window Animation - After" width="50%">
+  <img style="align-self: flex-start" src="./docs/fence-config-after.jpg" alt="Window Configuration - After" width="30%">
 </div>
 
 ---
 
-#### Fences
+### Fences
 
 Fences are set with Light and Sight Restriction set to Limited instead of None.
 Fences are detected as being greater than 2 grid squares, having no sense restrictions. A
@@ -46,20 +46,22 @@ fences.
 ---
 
 <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
-  <span style="font-weight: bold;">Fence - Before: Token can see through any number of consecutive fences</span>
+  <div style="font-weight: bold;">Fence - Before: Token can see through any number of consecutive fences</div>
+  <br>
   <img src="./docs/fence-before.gif" alt="Fence Animation - Before" width="50%">
   <img src="./docs/fence-config-before.jpg" alt="Fence Configuration - Before" width="30%">
 </div>
-
+<hr>
 <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
-  <span style="font-weight: bold;">Fence - After: Token can only see through the closest fence</span>
+  <div style="font-weight: bold;">Fence - After: Token can only see through the closest fence</div>
+  <br>
   <img src="./docs/fence-after.gif" alt="Fence Animation - After" width="50%">
   <img src="./docs/fence-config-after.jpg" alt="Fence Configuration - After" width="30%">
 </div>
 
 ---
 
-#### Gates
+### Gates
 
 Gates are set with Light and Sight Restriction set to Limited instead of None.
 Gates are detected as being exactly 1 or 2 grid squares and attached to a known Fence. A
@@ -71,13 +73,15 @@ DA export is that a gate is treated as opaque to the tokens, as with a standard 
 ---
 
 <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
-  <span style="font-weight: bold;">Gate - Before: Token cannot see through the gate</span>
+  <div style="font-weight: bold;">Gate - Before: Token cannot see through the gate</div>
+  <br>
   <img src="./docs/gate-before.gif" alt="Gate Animation - Before" width="50%">
   <img src="./docs/gate-config-before.jpg" alt="Gate Configuration - Before" width="30%">
 </div>
-
+<hr>
 <div style="display: flex; flex-direction: row; gap: 20px; align-items: center;">
-  <span style="font-weight: bold;">Gate - After: Token can see through the nearest gate</span>
+  <div style="font-weight: bold;">Gate - After: Token can see through the nearest gate</div>
+  <br>
   <img src="./docs/gate-after.gif" alt="Gate Animation - After" width="50%">
   <img src="./docs/gate-config-after.jpg" alt="Gate Configuration - After" width="30%">
 </div>
