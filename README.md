@@ -6,8 +6,8 @@ This is a NodeJS project for processing outputs from [Dungeon Alchemist](https:/
 
 ### Prerequisites
 
-- Node.js (v14 or later)
-- npm (v6 or later)
+- Node.js (v22 or later)
+- npm (v10 or later)
 
 ### Installation
 
@@ -63,6 +63,12 @@ Modified JSON data written to C:\Users\sferg\Desktop\dungeon-alchemist-post-proc
 The default background color on the map is set to black. To change this, edit the `DEFAULT_BACKGROUND_COLOR`
 in `MapGridProcessor`.
 
+The specifics for how objects are detected are documented in the various Filter classes. Note
+that the results can be imprecise due to the limitations of the source data. Assumptions are
+made that windows and doors cannot be more than two grid unit wide. However, the cleanup
+should be considerably less effort than updating everything by hand every time the Dungeon
+Alchemist JSON is imported.
+
 **Note:** The following animations were captured with Token Vision enabled for the scene.
 
 #### Windows
@@ -114,14 +120,8 @@ Gates are set with Light and Sight Restriction set to Limited instead of None.
 Gates are detected as being exactly 1 or 2 grid squares and attached to a known Fence. A
 Gate that is attached to a Fence that is mistaken for a Window will not be updated.
 
-The specifics for how objects are detected are documented in the various Filter classes. Note
-that the results can be imprecise due to the limitations of the source data. Assumptions are
-made that windows and doors cannot be more than two grid unit wide. However, the cleanup
-should be considerably less effort than updating everything by hand every time the Dungeon
-Alchemist JSON is imported.
-
-This will permit vision through the gate, much as with a fence. The default is that a gate
-is treated as opaque to the tokens, as is a standard door.
+This will permit vision through the gate, much as with a fence. The default in the
+DA export is that a gate is treated as opaque to the tokens, as with a standard door.
 
 ---
 
