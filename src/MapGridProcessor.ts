@@ -31,8 +31,8 @@ export class MapGridProcessor {
       console.log(chalk.blue(`Grid size: ${gridSize}`));
 
       this.windowProcessor.processObjects(jsonData, gridSize);
-      this.fenceProcessor.processObjects(jsonData, gridSize);
-      this.gateProcessor.processObjects(jsonData, gridSize);
+      const fences = this.fenceProcessor.processObjects(jsonData, gridSize);
+      this.gateProcessor.processObjects(jsonData, gridSize, fences);
 
       jsonData.backgroundColor = DEFAULT_BACKGROUND_COLOR;
 
