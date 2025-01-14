@@ -27,8 +27,7 @@ export class WindowFilter {
       wall.door === DoorValue.None;
 
     // We need to give it a pixel on either side since sometimes the math bumps them up a pixel
-    const isSizeCandidate =
-      size <= MAX_WINDOW_SIZE + 2 * gridSize && size % gridSize < 2;
+    const isSizeCandidate = size <= MAX_WINDOW_SIZE + 2 * gridSize;
 
     return isConfigCandidate && isSizeCandidate;
   }

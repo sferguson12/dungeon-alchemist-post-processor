@@ -26,8 +26,7 @@ export class GateFilter {
     }
 
     // We need to give it a pixel on either side since sometimes the math bumps them up a pixel
-    const isSizeCandidate =
-      size <= MAX_GATE_TILES + 2 * gridSize && size % gridSize < 2;
+    const isSizeCandidate = size <= MAX_GATE_TILES + 2 * gridSize;
 
     const points: Point[] = [
       { x: x1, y: y1 },
