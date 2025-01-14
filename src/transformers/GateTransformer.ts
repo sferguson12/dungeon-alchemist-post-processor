@@ -13,6 +13,10 @@ export class GateTransformer {
     wall.sound = SoundValue.None;
     wall.door = DoorValue.Door;
 
+    wall.light = undefined;
+    wall.sight = undefined;
+    wall.threshold = undefined;
+
     return wall;
   }
 }

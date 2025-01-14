@@ -15,6 +15,10 @@ export class FenceTransformer {
     wall.sound = SoundValue.None;
     wall.door = DoorValue.None;
 
+    wall.light = undefined;
+    wall.sight = undefined;
+    wall.threshold = undefined;
+
     return wall;
   }
 }

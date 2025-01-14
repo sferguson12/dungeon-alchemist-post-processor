@@ -1,11 +1,14 @@
-import { injectable } from 'tsyringe';
-import { Wall } from '../types';
+import { inject, injectable } from 'tsyringe';
+import { Point, Wall } from '../types';
 import { DoorValue, MovementValue, SenseValue, SoundValue } from '../enums';
+import { PointFilter } from './PointFilter';
 
 const MIN_FENCE_TILES = 2;
 
 @injectable()
 export class FenceFilter {
+  constructor(@inject(PointFilter) private pointFilter: PointFilter) {}
+
   /**
    * A fence is defined as a non-sense-blocking object that is greater than
    * two tiles in size, so as to differentiate it from a window. This will
@@ -30,5 +33,33 @@ export class FenceFilter {
     const isSizeCandidate = size > MIN_FENCE_TILES * gridSize + 2;
 
     return isConfigCandidate && isSizeCandidate;
+  }
+
+  /**
+   * A misidentified window is a window all of whose attachment points are
+   * to fences. This is a heuristic to differentiate between windows and
+   * fences.
+   * @param wall object to test
+   * @param walls set of all objects, for determining global attachment points
+   * @param fences set of previously identified fences
+   * @returns true if the object is a misidentified window, false otherwise
+   */
+  public isMisidentifiedWindow(
+    wall: Wall,
+    walls: Wall[],
+    fences: Wall[],
+  ): boolean {
+    const globalAttachmentPoints = this.pointFilter.getAttachmentPoints(
+      wall,
+      walls.filter((w) => w !== wall), // Exclude the wall we're checking
+    );
+
+    const fenceAttachmentPoints = this.pointFilter.getAttachmentPoints(
+      wall,
+      fences,
+    );
+
+    // If all of our attachment points are to fences, it's a misidentifed window
+    return fenceAttachmentPoints.length === globalAttachmentPoints.length;
   }
 }
