@@ -142,11 +142,11 @@ exported settings. In the DA export:
 We can apply the following rules to attempt to infer the original type of a wall:
 
 - A window can be no more than two grid units in length
-- A window cannot block sense
+- A window cannot block sense  
 
-- A fence can be any number of grid tiles in length
+- A fence can be any number of grid units in length
 - A fence cannot block sense
-- A window that is attached to fence segments at both ends is likely a misidentified fence
+- A window that is attached to fence segments at both ends is likely a misidentified fence  
 
 - A gate can be no more than two grid units in length
 - A gate can only be attached to a fence or another gate
