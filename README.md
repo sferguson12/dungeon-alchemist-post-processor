@@ -2,6 +2,10 @@
 
 This is a NodeJS project for processing Foundry exports from [Dungeon Alchemist](https://store.steampowered.com/app/1588530/Dungeon_Alchemist/). See the [Foundry article on Walls](https://foundryvtt.com/article/walls/) for more information about Wall configuration.
 
+There are probably a number of use cases this logic does not correctly identify.
+Sample submissions are welcome and I will do my best to refine the logic. Please
+double-check your wall configuration after importing.
+
 ## What does it do?
 
 **Note:** The following animations were captured with [Token Vision enabled for the scene (see Lighting Settings)](https://foundryvtt.com/article/scenes/).
@@ -10,7 +14,7 @@ This is a NodeJS project for processing Foundry exports from [Dungeon Alchemist]
 
 Windows are set with Light and Sight Restriction set to Proximity with a default
 distance of 10 feet, and Proximity Threshold Attenuation is enabled. Windows are detected
-as being exactly 1 or 2 grid squares, having no sense restrictions. To change the sight
+as being less than 2 grid squares, having no sense restrictions. To change the sight
 distance to something other than 10 feet, edit WindowTransformer.
 
 This will limit token vision through windows on either side until the token is within
@@ -36,9 +40,11 @@ the proximity distance.
 
 ### Fences
 
-Fences are set with Light and Sight Restriction set to Limited instead of None.
-Fences are detected as being greater than 2 grid squares, having no sense restrictions. A
-fence that is exactly 1 or 2 grid squares will erroneously be detected as a window.
+Fences are set with Light and Sight Restriction set to Limited instead of None, and Sound
+Restriction set to None instead of Normal. Fences are detected as being greater than 2
+grid squares, having no sense restrictions. A fence that is exactly 1 or 2 grid squares
+may erroneously be detected as a window, though we will attempt to correct that by
+converting any "window" attached only to fences into a fence itself.
 
 This will permit token vision through the fence, but obscure vision through multiple
 fences.
@@ -63,9 +69,10 @@ fences.
 
 ### Gates
 
-Gates are set with Light and Sight Restriction set to Limited instead of None.
-Gates are detected as being exactly 1 or 2 grid squares and attached to a known Fence. A
-Gate that is attached to a Fence that is mistaken for a Window will not be updated.
+Gates are set with Light and Sight Restriction set to Limited instead of None, and Sound
+Restriction set to None instead of Normal. Gates are detected as being less than 2 grid
+squares and attached to a known Fence. A Gate that is attached to a Fence that is
+mistaken for a Window will not be updated.
 
 This will permit vision through the gate, much as with a fence. The default in the
 DA export is that a gate is treated as opaque to the tokens, as with a standard door.
