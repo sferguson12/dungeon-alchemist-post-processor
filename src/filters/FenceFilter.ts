@@ -37,29 +37,19 @@ export class FenceFilter {
 
   /**
    * A misidentified window is a window all of whose attachment points are
-   * to fences. This is a heuristic to differentiate between windows and
-   * fences.
+   * to fences. Though it is possible to attach a fence to a window (such as
+   * an interior banister), it is more likely that a "window" attached to any
+   * fence has been misidentified based on its length.
+   *
    * @param wall object to test
-   * @param walls set of all objects, for determining global attachment points
    * @param fences set of previously identified fences
    * @returns true if the object is a misidentified window, false otherwise
    */
-  public isMisidentifiedWindow(
-    wall: Wall,
-    walls: Wall[],
-    fences: Wall[],
-  ): boolean {
-    const globalAttachmentPoints = this.pointFilter.getAttachmentPoints(
-      wall,
-      walls.filter((w) => w !== wall), // Exclude the wall we're checking
-    );
-
+  public isMisidentifiedWindow(wall: Wall, fences: Wall[]): boolean {
     const fenceAttachmentPoints = this.pointFilter.getAttachmentPoints(
       wall,
       fences,
     );
-
-    // If all of our attachment points are to fences, it's a misidentifed window
-    return fenceAttachmentPoints.length === globalAttachmentPoints.length;
+    return fenceAttachmentPoints.length > 0;
   }
 }

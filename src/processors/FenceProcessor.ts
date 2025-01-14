@@ -27,7 +27,7 @@ export class FenceProcessor {
 
     const extraFences = windows
       .filter((window) =>
-        this.fenceFilter.isMisidentifiedWindow(window, walls, fences),
+        this.fenceFilter.isMisidentifiedWindow(window, fences),
       )
       .map((window) => this.fenceTransformer.transformObject(window));
 
