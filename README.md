@@ -8,7 +8,8 @@ double-check your wall configuration after importing.
 
 ## What does it do?
 
-**Note:** The following animations were captured with [Token Vision enabled for the scene (see Lighting Settings)](https://foundryvtt.com/article/scenes/).
+**Note:** The following animations were captured with [Token Vision enabled for the scene (see Lighting Settings)](https://foundryvtt.com/article/scenes/)
+using the [Pathfinder 2e](https://foundryvtt.com/packages/pf2e/) system with Rules-Based Vision enabled.
 
 ### Windows
 
