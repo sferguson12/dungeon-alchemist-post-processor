@@ -123,6 +123,26 @@ made that windows and doors cannot be more than two grid units wide. However, th
 should be considerably less effort than updating everything by hand every time the Dungeon
 Alchemist JSON is imported.
 
+### Inference Rules
+
+Since everything is just a "wall", we have to infer what the configuration should be from the
+exported settings. In the DA export:
+
+- Fences and windows both block movement and sound, but not sense, and are not doors (making fences and windows identical)
+- Gates block movement, sound, and sense, and are doors (making them identical to actual doors)
+
+We can apply the following rules to attempt to infer the original type of a wall:
+
+- A window can be no more than two grid units in length
+- A window cannot block sense
+
+- A fence can be any number of grid tiles in length
+- A fence cannot block sense
+- A window that is attached to fence segments at both ends is likely a misidentified fence
+
+- A gate can be no more than two grid units in length
+- A gate can only be attached to a fence or another gate
+
 ### Usage
 
 To run the transformation, use the following command:
